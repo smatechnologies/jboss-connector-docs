@@ -1,6 +1,6 @@
 ---
-slug: '/'
 sidebar_label: 'Task Definition'
+hide_title: 'true'
 ---
 # Task Definitions
 

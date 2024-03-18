@@ -1,6 +1,6 @@
 ---
-slug: '/'
 sidebar_label: 'Installation'
+hide_title: 'true'
 ---
 
 # Installation

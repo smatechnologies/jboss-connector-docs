@@ -1,5 +1,6 @@
 ---
 sidebar_label: 'Release notes'
+hide_title: 'true'
 ---
 
 # JBoss Connector Release Notes
