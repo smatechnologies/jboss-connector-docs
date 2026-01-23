@@ -5,6 +5,17 @@ hide_title: 'true'
 
 # JBoss Connector Release Notes
 
+## Version 26.0.0
+
+### 2026 January
+
+#### New features
+
+#### Fixes
+
+:white_check_mark: **CON-825**: Updated Jboss client libraries to latest versions and updated Java environment to Java 11.
+                   This changes the jmx protocol from remoting-jmx to http-remoting-jmx.
+
 ## Version 19.0.0
 
 ### 2024 March

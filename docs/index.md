@@ -5,7 +5,7 @@ sidebar_label: 'JBoss Connector'
 
 # JBoss Connector
 
-Current version is 19.0.0.
+Current version is 26.0.0.
 
 The JBoss connector implementation consists of a Java program that is executed by either a Windows or UNIX/LINUX Agent. 
 

@@ -9,9 +9,9 @@ hide_title: 'true'
 - The JBoss Connector can be installed on any Linux or Windows Server where there is an OpCon Agent installed.
 
 ## Restrictions
-- The JBoss Connector is compatible with JBoss 7.1.1 and matching JBoss EAP versions.
-- JBoss connector requires Java 1.8 (supplied with Windows installation).
-- Requires OpCon version LTS 20.0 or greater.
+- The JBoss Connector is compatible with JBoss EAP versions.
+- JBoss connector requires Java 11 (supplied with Windows installation).
+- Requires OpCon version LTS 23.0 or greater.
 - 
 ## Installing the Connector Windows
 Copy the supplied zip file SMAJbossConnector-win.zip to a directory on the server.
