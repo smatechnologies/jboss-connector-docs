@@ -27,7 +27,7 @@ The JBoss job definition defines the operations that the JBoss Connector can run
 
 ### Invoke operation
 
-The invoke operation runs a defined operation associated with an mbean. It is possible to pass parameters when running the operation. Currently `STRING`, `INTEGER`, `LONG`, and `BOOLEAN` values are supported as parameters.
+The invoke operation runs a defined operation associated with an mbean. It is possible to pass parameters when running the operation. `STRING`, `INTEGER`, and `LONG` values are supported as parameters.
 
 The operation returns `0` (FINISHED_OK) to indicate successful completion or `1` (FAILED) if an error occurred. To detect failures, set the **Failure Criteria** to NE (Not Equal) to `0`.
 
@@ -38,13 +38,19 @@ The operation returns `0` (FINISHED_OK) to indicate successful completion or `1`
 | **Connector Location** | Required. Contains the installed location of the JBoss Connector. This should not be changed; the location should be defined in the `JBOSSPathWindows` or `JBOSSPathUnix` global property. If more than one JBoss Connector is installed, define a new global property for each connector and update this field accordingly |
 | **Server Name** | Required. The name of the JBoss server that the request must be routed to. The name must match a value in the `[server name]` header field of the `Connector.config` file |
 | **Operation** | Required. The operation for the connector to perform (**invoke**) |
-| **JMX Timeout Value** | Optional. The maximum time in seconds to wait for the JMX request to complete. Default: `60` |
+| **JMX Timeout Value** | Optional. The maximum time in seconds to wait for the JMX request to complete. Only values **greater than 60** take effect; a value of 60 or less is ignored. Leave the field empty to apply no timeout from the connector. There is no default |
 | **Mbean Name** | Required. The full name of the mbean that the invoke operation will be submitted to |
 | **Invoke Operation** | Required. The name of the operation on the mbean that the connector should invoke |
 | **Application Library** | Optional. Application libraries that must be added to the connector classpath for the request to complete successfully. Can be either a `.jar` or `.ear` file. Separate multiple values with a comma |
 | **Mbean Parameter** | Optional. Parameters to pass when performing the mbean operation. Enter the parameter identifier in the **Mbean Parameter Type** field and the value in the **Value** field |
 
-The following parameter types are supported: `STRING`, `INTEGER`, `LONG`, and `BOOLEAN`.
+The following parameter types are supported: `STRING`, `INTEGER`, and `LONG`.
+
+:::caution
+
+Do not use a `BOOLEAN` parameter type with the invoke operation. The connector accepts the type but cannot convert the value, so the job fails. Use the update operation if you need to set a boolean value on an mbean.
+
+:::
 
 To add a parameter, enter the definitions and select the **Add** button. The parameter is added to the parameter list.
 
@@ -145,7 +151,15 @@ The operation returns `0` (FINISHED_OK) if the attribute was successfully update
 | **Attribute Name** | Required. The name of the attribute on the mbean that should be updated |
 | **Update Attributes** | Required. The attribute type and value to update |
 
-The following attribute types are supported: `STRING`, `LSTRING`, `INTEGER`, `LONG`, and `BOOLEAN`.
+The following attribute types are supported: `STRING`, `LSTRING`, `INTEGER`, and `BOOLEAN`.
+
+For a `BOOLEAN` attribute, enter the value as `TRUE` in uppercase to set the attribute to true. **Any other value, including a lowercase `true`, sets the attribute to false.** The job still completes successfully, so check the case of the value if an attribute does not change as expected.
+
+:::caution
+
+Do not use a `LONG` attribute type with the update operation. The connector accepts the type but cannot convert the value, so the job fails. Use `INTEGER` for whole-number attributes within its range.
+
+:::
 
 To add an attribute update, enter the definitions and select the **Add** button. The attribute update is added to the parameter list.
 
@@ -153,7 +167,7 @@ To update an attribute in the list, select the attribute type in the list, chang
 
 To remove an attribute from the list, select the attribute type in the list and select the **Remove** button.
 
-The attribute type is passed to the connector as a single string (example: `STRING=test`) except for `LSTRING` where values are comma-separated (example: `LSTRING=test,test1`).
+The attribute type is passed to the connector as a single string (examples: `STRING=test`, `BOOLEAN=TRUE`) except for `LSTRING` where values are comma-separated (example: `LSTRING=test,test1`).
 
 ## FAQs
 

@@ -17,7 +17,7 @@ tags:
 
 2026 May
 
-### Fixes
+#### Fixes
 
 :eight_spoked_asterisk: **CON-1327**: Corrected CVE-2020-36518 vulnerability.
 
@@ -25,7 +25,7 @@ tags:
 
 2026 January
 
-### Fixes
+#### Fixes
 
 :eight_spoked_asterisk: **CON-825**: Updated JBoss client libraries to the latest versions and updated the Java environment to Java 11. This changes the JMX protocol from remoting-jmx to http-remoting-jmx.
 
@@ -35,7 +35,7 @@ tags:
 
 2024 March
 
-### What's new
+#### What's new
 
 :eight_spoked_asterisk: **Query**: Display the attribute value retrieved by the query operation in the job log.
 
@@ -47,11 +47,11 @@ tags:
 
 :eight_spoked_asterisk: **SubType**: A new **Attribute Update** tab is available for updating the value of an mbean attribute.
 
-### Fixes
+#### Fixes
 
 :eight_spoked_asterisk: **Logging**: Changed logging implementation, removing log4j due to a security vulnerability.
 
-### What's changed
+#### What's changed
 
 Installation changed to a simple file extraction instead of an installation program.
 
