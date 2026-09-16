@@ -1,4 +1,10 @@
 ---
+title: JBoss Connector
+description: "Run mbean operations and JMS messaging on JBoss EAP from OpCon: installation, configuration, and task definition reference."
+tags:
+  - Conceptual
+  - System Administrator
+  - JBoss Connector
 slug: '/'
 sidebar_label: 'JBoss Connector'
 hide_table_of_contents: true
